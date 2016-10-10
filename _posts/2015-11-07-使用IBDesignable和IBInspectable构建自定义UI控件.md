@@ -104,25 +104,20 @@ date: 2015-11-07 20:12:09.000000000 +08:00
 举个栗子，在自定义视图中新增一个`ImageView`,并声明一个`IBInspectable`变量`image`，当`image`被设置时`ImageView`的图片同时被设置。在`setup()`函数中初始化`ImageView`并将其加入到自定义视图中,最后在`layoutSubview`中设置其`center`，让其位置一直在 View 的中心点向上**120px**，具体代码如下：
 
 	lazy var imageView = UIImageView()
-   	@IBInspectable var image: UIImage? {
+	@IBInspectable var image: UIImage? {
        	didSet{
            	imageView.image = image
        	}
     }
-
- 	private func setup() {
+    private func setup() {
         textAlignment = .Center
         imageView.bounds = CGRectMake(0, 0, 60, 60)
         addSubview(imageView)
-        
-        
     }
-    
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        imageView.center = CGPointMake(bounds.midX, bounds.midY - 60)
-        
+        imageView.center = CGPointMake(bounds.midX, bounds.midY - 60)    
     }
 
 回到`StoryBoard`，麻利的设置一张图片，这是无论如何拖动自定义视图，可以看到`ImageView`都能按照我们代码中要求的位置正确摆放。
@@ -148,9 +143,7 @@ date: 2015-11-07 20:12:09.000000000 +08:00
             showAttributeAndNumber("tmpBool")
         }
     }
- 
- 
- 	lazy var count = 0
+    lazy var count = 0
     
     private func showAttributeAndNumber(funcName: String) {
         text = (text ?? "" ) + String(format:"\n%d  ",count++) + funcName + (tmpBool ? "  true  " : "  false  ")
