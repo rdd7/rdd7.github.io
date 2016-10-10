@@ -1,8 +1,7 @@
 # Basic
 title: Rdd7
-subtitle: A blog-orientation theme for Jekyll
-welcome_message: 
-description: Vno Jekyll is a port of my Ghost theme vno.
+subtitle: iOS Dev Blog
+description: iOS开发者，就职于网易，正在努力丰富iOS技能与经验.
 creator: <a href="http://rdd7.com">@rdd7</a>
 
 url: "https://rdd7.github.io"
@@ -13,7 +12,7 @@ permalink: /:year/:month/:title/
 highlighter: plain
 
 # supported colors: blue, green, purple, red, orange or slate. If you need clear, leave it empty.
-cover_color: red
+cover_color: slate
 
 # The blog button should not be removed.
 blog_button:
@@ -22,7 +21,7 @@ blog_button:
 
 # Navigation buttons in the front page.
 nav:
-    - {title: Projects, description: My Projects, url: 'http://project.onevcat.com'}
+    - {title: Github, description: Github, url: 'http://rdd7.github.com'}
     # - {title: Another Button, description: A button, url: 'http://example.com'}
 
 # Pagination
@@ -31,16 +30,16 @@ paginate: 10
 paginate_path: "page/:num/"
 
 # Comment
-comment:
-    disqus: vno-jekyll
+#comment:
+#    disqus: vno-jekyll
     # duoshuo: 
     
 # Social
 social:
-    weibo: onevcat
-    github: onevcat
-    twitter: onevcat
-    gplus: 107108267983477358170
+#    weibo: rdd7
+    github: rdd7
+#    twitter: rdd7
+#    gplus: 
     mail: rdd7@rdd7.com
 
 # Google Analytics
