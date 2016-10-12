@@ -9,7 +9,7 @@ date: 2015-10-27 15:32:24.000000000 +08:00
 对于这个问题原因的产生，必须先说说自己项目中滤镜的组织结构和使用方式，大致结构如下所示：
 
 
-![image](http://blogsource.oss-cn-hangzhou.aliyuncs.com/GPUimage/%E5%A4%84%E7%90%86%E5%9B%BE.jpg)
+![image](/postImages/2015-10-27/处理图.jpg)
 
 如上图所示，滤镜统一放在一个滤镜数组中，无论是生成主视图图片还是生成工具栏预览图片，所用的滤镜均来自同一个滤镜数组。于是这里就产生了一个问题：在工具栏的图片都能被各个滤镜渲染成功，而到了主视图时，**GPUImageAmatorkaFilter**、**GPUImageMissEtikateFilter**和**GPUImageSoftEleganceFilter**将不能正确渲染，且生成空文件。
 
