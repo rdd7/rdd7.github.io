@@ -17,7 +17,7 @@ date: 2015-11-07 20:12:09.000000000 +08:00
 ### 准备
 以 iOS 为例，新建一个普通的 iOS 工程，为了尽可能方便，这里新建了一个 Single View Application 。然后在工程中新建一个 Cocoa Touch Class ，这里我新建了一个`MyView`的类，继承自`UILabel`，当然继承其他 View 都是行的，只要是`UIView`或`NSView`的子类就行。工程结构如下图所示：
 
-![工程结构](2015-11-07/工程目录结构1.jpg)
+![工程结构](/postImages/2015-11-07/工程目录结构1.jpg)
 
 ### 让IB支持自定义视图类
 编辑`MyView.swift`，将里面预写的代码都删除，并在`MyView`类声明前加`@IBDesignable`，如图所示：
@@ -46,11 +46,11 @@ date: 2015-11-07 20:12:09.000000000 +08:00
 
 然后转到`StoryBoard`，在 Object Library 中拖出一个 View到 Controller上，选中这个 View 后在右侧的 Identity Inspector 中将其 Class 选择为我们自己的自定义视图类，这里选择为`MyView`，很快在 IB 的界面上我们就看到了自己的自定义视图已经出现了
 
-![](2015-11-07/MyView1.jpg)
+![](/postImages/2015-11-07/MyView1.jpg)
 
 从界面上还可以看出，这里是调用了`init(frame)`来初始化的，可能马上有人就反应过来了，从`StoryBoard`实例一个 View ,怎么不是用`init(coder)`呢？其实用模拟器或真机一跑就知道，在运行时调用的的确是`init(coder)`
 
-![](2015-11-07/screen.jpg)
+![](/postImages/2015-11-07/screen.jpg)
 
 所以这个可能出现暗坑的地方自然要多留意一下，对于一些初始化界面的代码，建议统一写到一个私有函数内，然后在上述两个初始化方法中调用，可以免去不少重复代码。这里我写了一个`setup()`函数，将`textAlignment`设为`.Center`,在上述两个初始化方法最后都加上对这个函数的调用，这样比较美观~（-3-)
 
@@ -82,7 +82,7 @@ date: 2015-11-07 20:12:09.000000000 +08:00
     
 现在去`StoryBoard`里选中之前的自定义视图，在右侧的 Utilities 面板中选中 attribute inspector 面板，会神奇的发现刚才定义的三个属性都已经显示在面板上，修改值会在 IB 界面上动态改变自定义视图
 
-![](2015-11-07/CustomViewChange.jpg)
+![](/postImages/2015-11-07/CustomViewChange.jpg)
 
 当时的我很好奇`didSet`既然可以，那`willSet`是否也可以咧，于是我把`borderWidth`的实现代码改成
 
@@ -122,7 +122,7 @@ date: 2015-11-07 20:12:09.000000000 +08:00
 
 回到`StoryBoard`，麻利的设置一张图片，这是无论如何拖动自定义视图，可以看到`ImageView`都能按照我们代码中要求的位置正确摆放。
 
-![](2015-11-07/CustomViewImageView.jpg)
+![](/postImages/2015-11-07/CustomViewImageView.jpg)
 
 这里也可以看出，对于这个自定义视图内的`ImageView`，是无法在 IB 中直接编辑的。**自定义视图也是IB中最小的编辑单位，如果真要内部的视图同样可在IB中编辑，应该直接在IB中嵌套视图并设置约束。**
 
@@ -151,7 +151,7 @@ date: 2015-11-07 20:12:09.000000000 +08:00
 
 其余的变量同`tmpBool`一样，在`didSet`内追加`showAttributeAndNumber(funcName)`函数，然后转回`StoryBoard`,看看结果，发现方法已经按照既定要求打印出来,确实是按照属性名的字母顺序升序设置的
 
-![](2015-11-07/varibleOrder.jpg)
+![](/postImages/2015-11-07/varibleOrder.jpg)
 
 更改`tmpBool`的值，发现只有最后一行，即`tmpBool`自己的这一行的值会在打印时改变，其余行的布尔值均为`tmpBool`的默认值。
 
